@@ -1,11 +1,598 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+// No es necesario registrar GSAP aquí si se hace en el script del cliente
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Veterinaria Patitas Felices - Cuidado profesional para tus mascotas">
+  <main>
+  
+    <nav class="navbar">
+      <div class="logo">Patitas Felices</div>
+      <ul class="nav-links">
+        <li><a href="/contacto">Contacto rápido</a></li>
+        <li><a href="/nosotros">Nosotros</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/precios">Precios</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Tu mascota <span>merece</span> lo mejor</h1>
+        <p class="hero-subtitle">Cuidado veterinario especializado con amor y profesionalismo</p>
+        <div class="hero-buttons">
+          <a href="/contacto" class="cta-button">Agenda tu cita</a>
+          <a href="/servicios" class="secondary-button">Nuestros servicios</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/imagenes/perrofeliz1.webp" alt="Perro feliz" width="400" height="300" />
+      </div>
+    </section>
+      
+    <section class="gallery-section">
+      <h2 class="section-title">Nuestra <span>Clínica</span></h2>
+      <div class="gallery-grid">
+        <img src="/imagenes/consultorio.webp" alt="Consultorio" loading="lazy" />
+        <img src="/imagenes/saladeespera.webp" alt="Sala de espera" loading="lazy" />
+        <img src="/imagenes/areadesirugia.webp" alt="Área de cirugía" loading="lazy" />
+        <img src="/imagenes/hospitalizacion.webp" alt="Hospitalización" loading="lazy" />
+        <img src="/imagenes/laboratorio.webp" alt="Laboratorio" loading="lazy" />
+        <img src="/imagenes/equipomedico.webp" alt="Equipo médico" loading="lazy" />
+        <img src="/imagenes/recepcion.webp" alt="Recepción" loading="lazy" />
+        <img src="/imagenes/areadegrooming.webp" alt="Área de grooming" loading="lazy" />
+        <img src="/imagenes/mascotasfelices.webp" alt="Mascotas felices" loading="lazy" />
+        <img src="/imagenes/equipoveterinario.webp" alt="Equipo veterinario" loading="lazy" />
+      </div>
+    </section>
+
+    <section class="services-section">
+      <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Consultas generales</h3>
+          <p>Diagnóstico y tratamiento para la salud de tu mascota.</p>
+        </div>
+        <div class="service-card">
+          <h3>Cirugías</h3>
+          <p>Procedimientos quirúrgicos seguros y cuidados postoperatorios.</p>
+        </div>
+        <div class="service-card">
+          <h3>Vacunación</h3>
+          <p>Mantén a tu mascota protegida de enfermedades.</p>
+        </div>
+        <div class="service-card">
+          <h3>Estética (Grooming)</h3>
+          <p>Baño, corte de pelo y limpieza para su bienestar.</p>
+        </div>
+        <div class="service-card">
+          <h3>Hospitalización</h3>
+          <p>Cuidado y monitoreo las 24 horas del día.</p>
+        </div>
+        <div class="service-card">
+          <h3>Laboratorio</h3>
+          <p>Análisis clínicos para diagnósticos precisos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="clients-section">
+      <h2 class="section-title">Confían <span>en nosotros</span></h2>
+      <div class="clients-grid">
+        <img src="/logos/nupec.webp" alt="Nupec" class="grayscale" />
+        <img src="/logos/pedigree.webp" alt="Pedigree" class="grayscale" />
+        <img src="/logos/virbac.webp" alt="Virbac" class="grayscale" />
+        <img src="/logos/zoetis.webp" alt="Zoetis" class="grayscale" />
+        <img src="/logos/elancopets.webp" alt="Elanco Pets" class="grayscale" />
+      </div>
+    </section>
+
+    <section class="quick-contact">
+      <h2 class="section-title"><span>Contáctanos</span></h2>
+      <form class="contact-form">
+        <div class="form-group">
+          <input type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Tu correo electrónico" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+        </div>
+        <button class="cta-button" type="submit">Enviar mensaje</button>
+      </form>
+      <div class="contact-info">
+        <div class="info-item">
+          <span>📞</span>
+          <p>55-1234-5678</p>
+        </div>
+        <div class="info-item">
+          <span>📧</span>
+          <p>contacto@patitasfelices.com</p>
+        </div>
+        <div class="info-item">
+          <span>📍</span>
+          <p>Calle Ficticia #123, Ciudad de México</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <div class="socials">
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="footer-text">By Team 3</p>
+  </footer>
+
+  <style>
+    /* El CSS se mantiene igual, no necesita correcciones */
+    .fab {
+      font-size: 40px;   
+      margin: 0 12px;
+      transition: transform 0.2s ease;
+    }
+
+    .fab:hover {
+      transform: scale(1.2); 
+    }
+
+    .fa-instagram { color: #E1306C; }
+    .fa-facebook-f { color: #1877F2; }
+    .fa-tiktok { color: #000000; }
+
+    footer {
+      background-color: #2b2d42;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      position: relative;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    .footer-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      transition: color 1s ease;
+      animation: color-change 3s infinite alternate;
+    }
+
+    @keyframes color-change {
+      0% { color: white; }
+      50% { color: red; }
+      100% { color: white; }
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3a86ff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+      color: #2667cc;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #2b2d42;
+      font-weight: 600;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-links li a:hover {
+      color: #3a86ff;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    :root {
+      --primary: #3a86ff;
+      --primary-dark: #2667cc;
+      --secondary: #ffbe0b;
+      --dark: #2b2d42;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .hero-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: rgba(58, 134, 255, 0.3);
+      z-index: -1;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+    }
+
+    .secondary-button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .secondary-button:hover {
+      background-color: rgba(58, 134, 255, 0.1);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title span {
+      color: var(--primary);
+      position: relative;
+    }
+
+    .section-title span::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: rgba(58, 134, 255, 0.3);
+      z-index: -1;
+    }
+
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      color: var(--gray);
+    }
+
+    .clients-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .clients-grid img {
+      height: 60px;
+      width: auto;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+    }
+
+    .clients-grid img:hover {
+      opacity: 1;
+    }
+
+    .grayscale {
+      filter: grayscale(100%);
+    }
+
+    .quick-contact {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .info-item span {
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image {
+        margin-top: 2rem;
+        order: -1;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    // REGISTRAR LOS PLUGINS ES LA PRIMERA COSA QUE SE HACE
+    gsap.registerPlugin(ScrollTrigger);
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      // Animaciones GSAP
+      gsap.from('.hero-title', {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+
+      gsap.from('.hero-subtitle', {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: 'power3.out'
+      });
+      
+      // Asegúrate de que los elementos con esta clase existan en el HTML
+      gsap.from('.hero-buttons a', {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out'
+      });
+
+      // CORREGIDO: Animación ahora funciona con la clase 'hero-image'
+      gsap.from('.hero-image', {
+        x: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.4,
+        ease: 'power3.out'
+      });
+      
+      // AGREGADO: Animación para los títulos de sección
+      gsap.utils.toArray('.section-title').forEach((title) => {
+        gsap.from(title, {
+          scrollTrigger: {
+            trigger: title,
+            start: 'top 90%'
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power2.out'
+        });
+      });
+
+      // Animaciones al scroll
+      gsap.utils.toArray('.gallery-grid img').forEach((img, i) => {
+        gsap.from(img, {
+          scrollTrigger: {
+            trigger: img,
+            start: 'top 80%'
+          },
+          y: 50,
+          opacity: 0,
+          duration: 0.6,
+          delay: i * 0.1
+        });
+      });
+
+      // CORREGIDO: Animación ahora funciona porque la sección de servicios fue agregada
+      gsap.utils.toArray('.service-card').forEach((card, i) => {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%'
+          },
+          y: 50,
+          opacity: 0,
+          duration: 0.6,
+          delay: i * 0.15
+        });
+      });
+
+      gsap.utils.toArray('.clients-grid img').forEach((logo, i) => {
+        gsap.from(logo, {
+          scrollTrigger: {
+            trigger: logo,
+            start: 'top 90%'
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.4,
+          delay: i * 0.1
+        });
+      });
+    });
+  </script>
 </Layout>

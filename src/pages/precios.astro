@@ -1,0 +1,523 @@
+---
+// src/pages/precios.astro
+
+const paquetes = [
+  {
+    nombre: "Básico",
+    precio: "$499",
+    frecuencia: "por consulta",
+    destacado: false,
+    caracteristicas: [
+      "Consulta general",
+      "Revisión de signos vitales",
+      "Diagnóstico básico",
+      "Receta médica",
+      "Seguimiento por 3 días"
+    ],
+    recomendado: "Ideal para revisiones rutinarias"
+  },
+  {
+    nombre: "Intermedio",
+    precio: "$899",
+    frecuencia: "por consulta",
+    destacado: true,
+    caracteristicas: [
+      "Todo lo del paquete Básico",
+      "Análisis de sangre básico",
+      "Aplicación de vacuna",
+      "Desparasitación",
+      "Seguimiento por 7 días",
+      "10% descuento en medicamentos"
+    ],
+    recomendado: "Perfecto para vacunación y chequeo completo"
+  },
+  {
+    nombre: "Plus",
+    precio: "$1,499",
+    frecuencia: "mensual",
+    destacado: false,
+    caracteristicas: [
+      "Todo lo del paquete Intermedio",
+      "Consulta ilimitada por 1 mes",
+      "Perfil bioquímico completo",
+      "Estudio de orina",
+      "Limpieza dental básica",
+      "15% descuento en todos los servicios",
+      "Transporte gratuito (radio de 10km)"
+    ],
+    recomendado: "Excelente para mascotas con necesidades especiales"
+  }
+];
+
+const serviciosAdicionales = [
+  { nombre: "Cirugía de esterilización", precio: "$1,200 - $1,800" },
+  { nombre: "Radiografía", precio: "$600 - $900" },
+  { nombre: "Ecografía", precio: "$800 - $1,200" },
+  { nombre: "Hospitalización (por día)", precio: "$700" },
+  { nombre: "Grooming completo", precio: "$400 - $600" }
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precios | Veterinaria Patitas Felices</title>
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">Patitas Felices</div>
+  <ul class="nav-links">
+    <li><a href="/">inicio</a></li>
+    <li><a href="/contacto">Contacto rápido</a></li>
+    <li><a href="/nosotros">nosotros</a></li>
+    <li><a href="/servicios">Servicios</a></li>
+    
+  </ul>
+</nav>
+   
+
+  <style>
+    
+    
+
+/* Animación de color */
+@keyframes color-change {
+  0% { color: white; }
+  50% { color: red; }
+  100% { color: white; }
+}
+
+        /* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3a86ff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #2667cc;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #2b2d42;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #3a86ff;
+  transform: translateY(-2px);
+}
+
+    :root {
+      --primary: #3a86ff;
+      --primary-light: #e6f0ff;
+      --secondary: #ffbe0b;
+      --accent: #ff6b6b;
+      --dark: #2b2d42;
+      --medium: #6c757d;
+      --light: #f8f9fa;
+      --white: #ffffff;
+      --success: #4caf50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Hero Section */
+    .pricing-hero {
+      background: linear-gradient(135deg, var(--primary-light) 0%, #e1effe 100%);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .pricing-hero h1 {
+      font-size: 2.5rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .pricing-hero p {
+      font-size: 1.1rem;
+      color: var(--medium);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Paquetes */
+    .packages {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .package-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .package-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .package-card.featured {
+      border: 3px solid var(--secondary);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: var(--secondary);
+      color: var(--dark);
+      padding: 0.25rem 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .package-header {
+      padding: 2rem;
+      text-align: center;
+      background-color: var(--primary-light);
+    }
+
+    .package-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .package-price {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .package-frequency {
+      color: var(--medium);
+      font-size: 0.9rem;
+    }
+
+    .package-body {
+      padding: 2rem;
+    }
+
+    .package-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .package-features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+    }
+
+    .package-features li:before {
+      content: "✓";
+      color: var(--success);
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+
+    .package-recommended {
+      font-style: italic;
+      color: var(--medium);
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .package-button {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .package-button:hover {
+      background-color: var(--dark);
+    }
+
+    /* Servicios Adicionales */
+    .additional-services {
+      padding: 3rem 0;
+      background-color: var(--white);
+    }
+
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    .services-table th, .services-table td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .services-table th {
+      background-color: var(--primary-light);
+      color: var(--dark);
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 3rem 0;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .services-table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+
+
+/* Animación de color */
+@keyframes color-change {
+  0% { color: white; }
+  50% { color: red; }
+  100% { color: white; }
+}
+
+ .fab {
+  font-size: 40px;   /* tamaño de todos los íconos */
+  margin: 0 12px;    /* separación entre ellos */
+  transition: transform 0.2s ease;
+}
+
+.fab:hover {
+  transform: scale(1.2); /* efecto al pasar el mouse */
+}
+
+/* Colores de cada red */
+.fa-instagram { color: #E1306C; }
+.fa-facebook-f { color: #1877F2; }
+.fa-tiktok { color: #000000; }
+
+        /* Footer */
+footer {
+  background-color: #2b2d42;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+
+/* Texto "By Team 3" */
+.footer-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: color 1s ease;
+  animation: color-change 3s infinite alternate;
+}
+
+
+  </style>
+</head>
+<main>
+<body>
+  <!-- Hero Section -->
+  <section class="pricing-hero">
+    <div class="container">
+      <h1>Nuestros Planes y Precios</h1>
+      <p>Transparencia en costos y servicios para el cuidado de tu mascota</p>
+    </div>
+  </section>
+
+  <!-- Paquetes -->
+  <section class="packages">
+    <div class="container">
+      <div class="section-title">
+        <h2>Paquetes de Servicios</h2>
+        <p>Elige el plan que mejor se adapte a las necesidades de tu mascota</p>
+      </div>
+      
+      <div class="packages-grid">
+        {paquetes.map(paquete => (
+          <div class={`package-card ${paquete.destacado ? 'featured' : ''}`}>
+            {paquete.destacado && <div class="featured-badge">Recomendado</div>}
+            <div class="package-header">
+              <h3 class="package-name">{paquete.nombre}</h3>
+              <div class="package-price">{paquete.precio}</div>
+              <div class="package-frequency">{paquete.frecuencia}</div>
+            </div>
+            <div class="package-body">
+              <ul class="package-features">
+                {paquete.caracteristicas.map(caracteristica => (
+                  <li>{caracteristica}</li>
+                ))}
+              </ul>
+              <p class="package-recommended">{paquete.recomendado}</p>
+              <a href="/contacto" class="package-button">Contratar</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Adicionales -->
+  <section class="additional-services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Servicios Adicionales</h2>
+        <p>Precios de procedimientos especializados</p>
+      </div>
+      
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          {serviciosAdicionales.map(servicio => (
+            <tr>
+              <td>{servicio.nombre}</td>
+              <td>{servicio.precio}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Preguntas Frecuentes -->
+<div></div>  <section class="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Preguntas Frecuentes</h2>
+      </div>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">¿Los precios incluyen IVA?</h3>
+        <p>Sí, todos nuestros precios ya incluyen el IVA correspondiente.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">¿Aceptan pagos con tarjeta?</h3>
+        <p>Aceptamos todas las tarjetas de crédito y débito, además de transferencias y efectivo.</p>
+      </div>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">¿Ofrecen planes de pago?</h3>
+        <p>Para cirugías y tratamientos extensos, ofrecemos planes de pago a 3 y 6 meses sin intereses.</p>
+      </div>
+      
+    </div>
+    
+  </section>
+  
+</body>
+
+</div>
+
+
+</div>
+</main>
+<footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Redes sociales -->
+<div class="socials">
+  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <p class="footer-text">By Team 3</p>
+  </footer>
+
+</html>

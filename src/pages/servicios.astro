@@ -1,0 +1,621 @@
+---
+// src/pages/servicios.astro
+const servicios = [
+  {
+    titulo: "Consultas Médicas",
+    icono: "🩺",
+    descripcion: "Exámenes completos y diagnóstico profesional para tu mascota.",
+    caracteristicas: [
+      "Consulta general",
+      "Diagnóstico por síntomas",
+      "Recomendaciones personalizadas"
+    ],
+    imagen: "public/servicios/consulta.webp"
+  },
+  {
+    titulo: "Vacunación",
+    icono: "💉",
+    descripcion: "Programa completo de prevención de enfermedades.",
+    caracteristicas: [
+      "Vacunas básicas y opcionales",
+      "Esquema personalizado",
+      "Control de cartilla"
+    ],
+    imagen: "public/servicios/vacunas.webp"
+  },
+  {
+    titulo: "Cirugías",
+    icono: "🩹",
+    descripcion: "Procedimientos quirúrgicos con equipos modernos.",
+    caracteristicas: [
+      "Esterilización",
+      "Cirugías programadas",
+      "Emergencias quirúrgicas"
+    ],
+    imagen: "public/servicios/cirugias.webp"
+  },
+  {
+    titulo: "Laboratorio Clínico",
+    icono: "🧪",
+    descripcion: "Análisis precisos para diagnóstico certero.",
+    caracteristicas: [
+      "Análisis de sangre",
+      "Exámenes de orina",
+      "Pruebas especializadas"
+    ],
+    imagen: "public/servicios/laboratorio.webp"
+  },
+  {
+    titulo: "Hospitalización",
+    icono: "🏥",
+    descripcion: "Cuidado intensivo para pacientes graves.",
+    caracteristicas: [
+      "Monitoreo 24/7",
+      "Área climatizada",
+      "Atención especializada"
+    ],
+    imagen: "public/servicios/hospitalizacion.webp"
+  },
+  {
+    titulo: "Estética Canina",
+    icono: "✂️",
+    descripcion: "Servicios de grooming profesional.",
+    caracteristicas: [
+      "Baño terapéutico",
+      "Corte de pelo",
+      "Limpieza dental"
+    ],
+    imagen: "public/servicios/estetica.webp"
+  }
+];
+
+const metodologia = [
+  {
+    titulo: "Enfoque Preventivo",
+    descripcion: "Más del 60% de nuestras consultas están orientadas a prevenir enfermedades antes que tratarlas."
+  },
+  {
+    titulo: "Tecnología Avanzada",
+    descripcion: "Equipos de diagnóstico de última generación para resultados precisos."
+  },
+  {
+    titulo: "Dolor Cero",
+    descripcion: "Protocolos especializados para minimizar el estrés y dolor en todos los procedimientos."
+  }
+];
+
+const ventajas = [
+  {
+    titulo: "10+ años de experiencia",
+    icono: "📅",
+    descripcion: "Más de una década cuidando a tus mascotas"
+  },
+  {
+    titulo: "Equipo Certificado",
+    icono: "👩‍⚕️",
+    descripcion: "Profesionales con especializaciones reconocidas"
+  },
+  {
+    titulo: "Instalaciones Modernas",
+    icono: "🏥",
+    descripcion: "Clínica equipada con tecnología de punta"
+  },
+  {
+    titulo: "Atención Personalizada",
+    icono: "💖",
+    descripcion: "Cada mascota recibe trato individualizado"
+  }
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios Veterinarios | Clínica Patitas Felices</title>
+    <!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">Patitas Felices</div>
+  <ul class="nav-links">
+    <li><a href="/">inicio</a></li>
+    <li><a href="contacto">Contacto rápido</a></li>
+    <li><a href="/nosotros">Nosotros</a></li>
+    <li><a href="/precios">Precios</a></li>
+  </ul>
+</nav>
+
+  <style>
+    
+    .fab {
+  font-size: 40px;   /* tamaño de todos los íconos */
+  margin: 0 12px;    /* separación entre ellos */
+  transition: transform 0.2s ease;
+}
+
+.fab:hover {
+  transform: scale(1.2); /* efecto al pasar el mouse */
+}
+
+/* Colores de cada red */
+.fa-instagram { color: #E1306C; }
+.fa-facebook-f { color: #1877F2; }
+.fa-tiktok { color: #000000; }
+        /* Footer */
+footer {
+  background-color: #2b2d42;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+       /* Footer */
+footer {
+  background-color: #2b2d42;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+/* Redes sociales */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-socials a {
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: #3a86ff;
+  transform: translateY(-2px);
+}
+
+/* Texto "By Team 3" */
+.footer-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: color 1s ease;
+  animation: color-change 3s infinite alternate;
+}
+
+/* Animación de color */
+@keyframes color-change {
+  0% { color: white; }
+  50% { color: red; }
+  100% { color: white; }
+}
+
+            /* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3a86ff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #2667cc;
+}
+
+/* Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #2b2d42;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #3a86ff;
+  transform: translateY(-2px);
+}
+
+
+/* Cambiar fondo al hacer scroll (opcional) */
+.navbar.scrolled {
+  background-color: #3a86ff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #3a86ff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #2667cc;
+}
+
+/* Lista de enlaces */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #2b2d42;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #3a86ff;
+  transform: translateY(-2px);
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Aquí podrías agregar un menú hamburguesa si quieres */
+  }
+}
+
+:root {
+  --color-primario: #3a86ff;
+  --color-secundario: #ffbe0b;
+  --color-texto: #2b2d42;
+  --color-fondo: #f8f9fa;
+      --color-blanco: #ffffff;
+      --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    
+    body {
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+      line-height: 1.6;
+    }
+    
+    .contenedor {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Encabezado */
+    .encabezado {
+      background: linear-gradient(135deg, var(--color-primario), #2667cc);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .encabezado h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .encabezado p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Sección de Servicios */
+    .seccion-servicios {
+      padding: 60px 0;
+    }
+    
+    .titulo-seccion {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .titulo-seccion h2 {
+      font-size: 2rem;
+      color: var(--color-primario);
+      margin-bottom: 10px;
+    }
+    
+    .grid-servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .tarjeta-servicio {
+      background: var(--color-blanco);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--sombra);
+      transition: transform 0.3s ease;
+    }
+    
+    .tarjeta-servicio:hover {
+      transform: translateY(-5px);
+    }
+    
+    .imagen-servicio {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .imagen-servicio img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .tarjeta-servicio:hover .imagen-servicio img {
+      transform: scale(1.05);
+    }
+    
+    .contenido-servicio {
+      padding: 20px;
+    }
+    
+    .contenido-servicio h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .contenido-servicio p {
+      margin-bottom: 15px;
+      color: #666;
+    }
+    
+    .contenido-servicio ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .contenido-servicio li {
+      margin-bottom: 8px;
+    }
+    
+    /* Metodología */
+    .seccion-metodologia {
+      background-color: var(--color-blanco);
+      padding: 60px 0;
+    }
+    
+    .grid-metodologia {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .tarjeta-metodologia {
+      background: var(--color-fondo);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: var(--sombra);
+    }
+    
+    .tarjeta-metodologia h3 {
+      color: var(--color-primario);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    /* Ventajas */
+    .seccion-ventajas {
+      padding: 60px 0;
+    }
+    
+    .grid-ventajas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .tarjeta-ventaja {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--color-blanco);
+      border-radius: 10px;
+      box-shadow: var(--sombra);
+    }
+    
+    .tarjeta-ventaja .icono {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--color-primario);
+    }
+    
+    .tarjeta-ventaja h3 {
+      margin-bottom: 10px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .encabezado {
+        padding: 40px 0;
+      }
+      
+      .encabezado h1 {
+        font-size: 2rem;
+      }
+      
+      .grid-servicios, .grid-metodologia, .grid-ventajas {
+        grid-template-columns: 1fr;
+      }
+    }
+     /* Footer */
+footer {
+  background-color: #2b2d42;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+/* Redes sociales */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-socials a {
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: #3a86ff;
+  transform: translateY(-2px);
+}
+
+/* Texto "By Team 3" */
+.footer-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: color 1s ease;
+  animation: color-change 3s infinite alternate;
+}
+
+/* Animación de color */
+@keyframes color-change {
+  0% { color: white; }
+  50% { color: red; }
+  100% { color: white; }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header class="encabezado">
+    <div class="contenedor">
+      <h1>Nuestros Servicios Veterinarios</h1>
+      <p>Cuidado especializado para cada etapa de la vida de tu mascota</p>
+    </div>
+  </header>
+
+  <!-- Sección de Servicios -->
+  <section class="seccion-servicios">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2>Servicios Disponibles</h2>
+        <p>Ofrecemos una gama completa de servicios para el bienestar de tu mascota</p>
+      </div>
+      
+      <div class="grid-servicios">
+        {servicios.map(servicio => (
+          <article class="tarjeta-servicio">
+            <div class="imagen-servicio">
+              <img src={servicio.imagen} alt={servicio.titulo} loading="lazy" />
+            </div>
+            <div class="contenido-servicio">
+              <h3><span>{servicio.icono}</span> {servicio.titulo}</h3>
+              <p>{servicio.descripcion}</p>
+              <ul>
+                {servicio.caracteristicas.map(caracteristica => <li>{caracteristica}</li>)}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodología -->
+  <section class="seccion-metodologia">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2>Nuestra Metodología</h2>
+        <p>El enfoque profesional que nos distingue</p>
+      </div>
+      
+      <div class="grid-metodologia">
+        {metodologia.map(item => (
+          <div class="tarjeta-metodologia">
+            <h3>{item.titulo}</h3>
+            <p>{item.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ventajas -->
+  <section class="seccion-ventajas">
+    <div class="contenedor">
+      <div class="titulo-seccion">
+        <h2>¿Por qué elegirnos?</h2>
+        <p>Ventajas que nos hacen diferentes</p>
+      </div>
+      
+      <div class="grid-ventajas">
+        {ventajas.map(ventaja => (
+          <div class="tarjeta-ventaja">
+            <div class="icono">{ventaja.icono}</div>
+            <h3>{ventaja.titulo}</h3>
+            <p>{ventaja.descripcion}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</body>
+<section> <footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Redes sociales -->
+<div class="socials">
+  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+  <p class="footer-text">By Team 3</p>
+  </footer></section>
+
+</html>

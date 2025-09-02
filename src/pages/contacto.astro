@@ -1,0 +1,229 @@
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto - Veterinaria Patitas Felices</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="logo">Patitas Felices</div>
+    <ul class="nav-links">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/nosotros">Nosotros</a></li>
+      <li><a href="/servicios">Servicios</a></li>
+      <li><a href="/precios">Precios</a></li>
+     
+    </ul>
+  </nav>
+
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Contacto <span>Rápido</span></h1>
+      <p class="hero-subtitle">Estamos listos para atender a tus mascotas</p>
+    </div>
+  </section>
+
+
+  <div class="contact-container">
+    <div class="contact-form">
+      <h2 class="section-title">Envíanos un <span>mensaje</span></h2>
+      <form onsubmit="
+        event.preventDefault();
+        const phoneNumber='+529618570315'; 
+        const name=this.name.value;
+        const email=this.email.value;
+        const phone=this.phone.value;
+        const message=this.message.value;
+        const text=`Nombre: ${name}%0AEmail: ${email}%0ATeléfono: ${phone}%0AMensaje: ${message}`;
+        window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
+      ">
+        <input type="text" name="name" placeholder="Nombre" required />
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <input type="tel" name="phone" placeholder="Teléfono" />
+        <textarea name="message" placeholder="Mensaje" rows="4" required></textarea>
+        <button type="submit" class="cta-button">Enviar a WhatsApp</button>
+      </form>
+    </div>
+   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15281.736474643356!2d-93.36912514999999!3d16.75506385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1755244115483!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+<section>
+    <div class="schedule">
+      <h2 class="section-title">Nuestros <span>horarios</span></h2>
+      <table>
+        <tr><th>Día</th><th>Horario</th></tr>
+        <tr><td>Lunes - Viernes</td><td>08:00 - 20:00</td></tr>
+        <tr><td>Sábado</td><td>09:00 - 18:00</td></tr>
+        <tr><td>Domingo</td><td>Cerrado</td></tr>
+      </table>
+    </div>
+    
+<section>
+  <h2 >Síguenos en nuestras redes sociales </h2>
+</section>
+  </section>
+
+   <footer>
+    
+<div class="socials">
+  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+</div>
+
+      <p class="footer-text">By Team 3</p>
+    </div>
+  </footer>
+
+  <style>
+     .fab {
+  font-size: 40px;  
+  margin: 0 12px;   
+  transition: transform 0.2s ease;
+}
+
+.fab:hover {
+  transform: scale(1.2);
+}
+
+/* Colores de cada red */
+.fa-instagram { color: #E1306C; }
+.fa-facebook-f { color: #1877F2; }
+.fa-tiktok { color: #000000; }
+        /* Footer */
+footer {
+  background-color: #2b2d42;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+      /* Footer */
+footer {
+  background-color: #2b2d42;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+/* Redes sociales */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-socials a {
+  font-size: 1.5rem;
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: #3a86ff;
+  transform: translateY(-2px);
+}
+
+/* Texto "By Team 3" */
+.footer-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  transition: color 1s ease;
+  animation: color-change 3s infinite alternate;
+}
+
+/* Animación de color */
+@keyframes color-change {
+  0% { color: white; }
+  50% { color: red; }
+  100% { color: white; }
+}
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      scroll-behavior: smooth;
+      background-color: #f8f9fa;
+      color: #2b2d42;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .logo { font-weight: 700; font-size: 1.5rem; color: #3a86ff; }
+    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links a { text-decoration: none; color: #2b2d42; font-weight: 600; transition: color 0.3s; }
+    .nav-links a:hover { color: #3a86ff; }
+
+    /* Hero */
+    .hero { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
+    .hero-title { font-size: 3rem; font-weight: 700; }
+    .hero-title span { color: #3a86ff; }
+    .hero-subtitle { font-size: 1.25rem; color: #6c757d; margin-top: 1rem; }
+
+    /* Contacto */
+    .contact-section { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+    .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+    .contact-form { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+    .cta-button { background-color: #3a86ff; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+    .cta-button:hover { background-color: #2667cc; }
+
+    .contact-map img { width: 100%; aspect-ratio: 3 / 1; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+    /* Horarios */
+    .schedule { text-align: center; margin-bottom: 2rem; }
+    table { margin: 0 auto; border-collapse: collapse; width: 60%; }
+    th, td { padding: 0.75rem 1rem; border: 1px solid #ddd; }
+    th { background-color: #3a86ff; color: white; }
+    td { background-color: #f8f9fa; }
+
+    /* Redes sociales */
+    .socials { display: flex; justify-content: center; gap: 2rem; font-size: 2rem; margin-bottom: 3rem; }
+
+    /* Footer */
+    footer { background-color: #2b2d42; color: white; text-align: center; padding: 2rem 1rem; }
+    .footer-text { font-weight: 600; animation: colorChange 3s infinite alternate; }
+    @keyframes colorChange { 0%{color:white;} 50%{color:red;} 100%{color:white;} }
+
+    @media (max-width: 768px) {
+      .contact-container { grid-template-columns: 1fr; }
+      table { width: 90%; }
+    }
+  </style>
+
+  <script is:inline>
+    document.getElementById('whatsappForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('message').value;
+      const text = `Nombre: ${name}\nTeléfono: ${phone}\nMensaje: ${message}`;
+      const whatsappURL = `https://api.whatsapp.com/send?phone=5215551234567&text=${encodeURIComponent(text)}`;
+      window.open(whatsappURL, '_blank');
+    });
+  </script>
+</body>
+</html>
